@@ -1,0 +1,7 @@
+{
+  "name": "cubeflow-timer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Timer speedcubing modern dengan scramble acak dan progres tersimpan.",
+  "scripts": { "dev": "npx serve ." }
+}

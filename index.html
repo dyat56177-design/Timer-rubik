@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>CubeFlow – Timer Rubik</title>
+<meta name="description" content="Timer speedcubing modern dengan scramble acak, statistik Ao5/Ao12, dan progres tersimpan otomatis.">
+<meta name="theme-color" content="#0a0b12">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header class="top">
+  <div class="brand"><img src="favicon.svg" alt="" width="30" height="30"><b>CubeFlow</b></div>
+  <div class="grow"></div>
+  <span class="badge">3×3</span>
+  <button class="btn" id="bSet" aria-label="Pengaturan">Pengaturan</button>
+</header>
+
+<main>
+  <section class="stage">
+    <div class="scr">
+      <p id="scramble" class="mono" aria-live="polite"></p>
+      <button class="btn" id="bNew">Scramble baru</button>
+    </div>
+    <div id="pad" class="pad" data-s="idle" role="button" aria-label="Area timer">
+      <div id="time" class="time mono">0.00</div>
+      <div id="hint" class="hint"></div>
+    </div>
+    <div id="stats" class="stats"></div>
+  </section>
+
+  <aside class="side">
+    <div class="card"><h3>Pola scramble</h3><div id="net"></div></div>
+    <div class="card">
+      <h3>Riwayat solve</h3>
+      <svg id="chart" viewBox="0 0 300 80" preserveAspectRatio="none"></svg>
+      <ul id="list"></ul>
+    </div>
+  </aside>
+</main>
+
+<dialog id="dlg">
+  <div class="dh"><h2>Pengaturan</h2><button class="btn" data-close>Tutup</button></div>
+  <label class="opt"><span>Inspeksi 15 detik<small>+2 setelah 15 dtk, DNF setelah 17 dtk</small></span><input type="checkbox" id="oInsp" class="sw"></label>
+  <label class="opt"><span>Sembunyikan waktu saat solve</span><input type="checkbox" id="oHide" class="sw"></label>
+  <label class="opt"><span>Lama menahan</span>
+    <select id="oHold"><option value="0">Instan</option><option value="300">0,3 dtk</option><option value="550">0,55 dtk</option></select></label>
+  <div class="opt"><span>Warna aksen</span><div id="sw" class="swatches"></div></div>
+  <div class="grid3">
+    <button class="btn" id="bExp">Ekspor data</button>
+    <button class="btn" id="bImp">Impor data</button>
+    <button class="btn danger" id="bClr">Hapus semua</button>
+  </div>
+  <input type="file" id="file" accept="application/json" hidden>
+</dialog>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
